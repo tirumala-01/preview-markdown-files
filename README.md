@@ -1,71 +1,108 @@
-# preview-markdown-files README
+# Auto Preview Markdown
 
-This is the README for your extension "preview-markdown-files". After writing up a brief description, we recommend including the following sections.
+Automatically open and close markdown preview in VS Code with smart features that no other extension offers.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Auto-Open Preview
+When you open a markdown file, the preview automatically opens beside it. No more manually triggering `Ctrl+Shift+V`!
 
-For example if there is an image subfolder under your extension project workspace:
+### Auto-Close Preview (Unique)
+When you close a markdown file, its preview automatically closes too. Keep your workspace clean without manually closing preview tabs.
 
-\!\[feature X\]\(images/feature-x.png\)
+### Git Diff Awareness (Unique)
+The extension detects when you're viewing a git diff and won't open a preview. Review your changes without the preview getting in the way.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+### Preview-Only Mode / Reader Mode (Unique)
+Want to just read markdown without seeing the source? Enable preview-only mode for a clean reading experience:
+- Only shows the preview, hides the source editor
+- Displays one preview at a time (like a document reader)
+- Opening a new file smoothly replaces the current preview
 
-## Requirements
+### Preserve Focus (Unique)
+Keep your cursor in the source editor after opening the preview. Continue typing without switching focus.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+### Multi-Language Support
+Works with:
+- Markdown (`.md`, `.markdown`, `.mdown`, `.mkd`)
+- AsciiDoc (`.adoc`, `.asciidoc`) - requires [AsciiDoc extension](https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode)
+- reStructuredText (`.rst`, `.rest`) - requires [reStructuredText extension](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `previewMarkdown.enabled` | `true` | Enable/disable the extension |
+| `previewMarkdown.openPreviewToSide` | `true` | Open preview to the side (`true`) or in same editor group (`false`) |
+| `previewMarkdown.autoClosePreview` | `true` | Automatically close preview when markdown file is closed |
+| `previewMarkdown.openOnGitDiff` | `false` | Open preview when viewing git diff |
+| `previewMarkdown.previewOnlyMode` | `false` | Reader mode: show only preview, one file at a time |
+| `previewMarkdown.preserveFocus` | `true` | Keep focus in the source editor after opening preview |
+| `previewMarkdown.languages` | `"markdown"` | Comma-separated list of languages: `markdown`, `asciidoc`, `restructuredtext` |
 
-For example:
+## Commands & Keyboard Shortcuts
 
-This extension contributes the following settings:
+| Command | Shortcut (Windows/Linux) | Shortcut (Mac) | Description |
+|---------|--------------------------|----------------|-------------|
+| `Auto Preview: Toggle Auto Preview Markdown` | `Ctrl+Shift+Alt+M` | `Cmd+Shift+Alt+M` | Enable or disable the extension |
+| `Auto Preview: Toggle Preview-Only Mode` | `Ctrl+Shift+Alt+P` | `Cmd+Shift+Alt+P` | Toggle between source+preview or preview-only |
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+Access commands via:
+- **Keyboard shortcuts** (when editing a markdown/asciidoc/rst file)
+- **Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+
+> **Note:** Keyboard shortcuts are only active when you're focused on a supported file (markdown, asciidoc, or restructuredtext).
+
+## Usage Examples
+
+### Basic Usage
+1. Install the extension
+2. Open any `.md` file
+3. Preview automatically opens to the side
+
+### Preview-Only Mode (for reading)
+1. Open settings (`Ctrl+,` / `Cmd+,`)
+2. Search for `previewMarkdown.previewOnlyMode`
+3. Enable it
+4. Now when you open markdown files, only the preview shows
+
+### Working with Git Diffs
+The extension automatically detects git diffs. When you click on a changed `.md` file in the Source Control panel, the preview won't open, letting you focus on reviewing changes.
+
+### Multi-Language Setup
+To enable AsciiDoc and reStructuredText support:
+1. Install the respective extensions from the marketplace
+2. Open settings
+3. Set `previewMarkdown.languages` to `"markdown, asciidoc, restructuredtext"`
+
+## Requirements
+
+- VS Code 1.75.0 or higher
+- For AsciiDoc: [AsciiDoc extension](https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode)
+- For reStructuredText: [reStructuredText extension](https://marketplace.visualstudio.com/items?itemName=lextudio.restructuredtext)
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- Preview tab labels must match the pattern `Preview filename.ext` for auto-close to work correctly
+- When using Remote SSH/WSL/Containers, ensure the extension is installed in the remote environment
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+Initial release with:
+- Auto-open preview on markdown file open
+- Auto-close preview when source file closes
+- Git diff awareness
+- Preview-only mode
+- Preserve focus option
+- Multi-language support (markdown, asciidoc, restructuredtext)
+- Keyboard shortcuts for quick toggling
 
-### 1.0.1
+## Contributing
 
-Fixed issue #.
+Found a bug or have a feature request? Please open an issue on the [GitHub repository](https://github.com/your-repo/preview-markdown-files).
 
-### 1.1.0
+## License
 
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT - see [LICENSE](LICENSE) for details.

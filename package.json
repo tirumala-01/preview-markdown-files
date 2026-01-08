@@ -1,21 +1,91 @@
 {
   "name": "preview-markdown-files",
-  "displayName": "preview-markdown-files",
-  "description": "preview-markdown-files",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.107.0"
+  "displayName": "Auto Preview Markdown",
+  "description": "Automatically open/close markdown preview with smart diff detection",
+  "version": "1.0.0",
+  "publisher": "your-publisher-id",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/preview-markdown-files"
   },
-  "categories": [
-    "Other"
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": ["Other"],
+  "keywords": ["markdown", "preview", "auto open", "auto close", "diff", "asciidoc"],
+  "extensionKind": ["ui", "workspace"],
+  "activationEvents": [
+    "onLanguage:markdown",
+    "onLanguage:asciidoc",
+    "onLanguage:restructuredtext"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Auto Preview Markdown",
+      "properties": {
+        "previewMarkdown.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable the extension"
+        },
+        "previewMarkdown.openPreviewToSide": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open preview to the side (true) or in same editor group (false)"
+        },
+        "previewMarkdown.autoClosePreview": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically close preview when markdown file is closed"
+        },
+        "previewMarkdown.openOnGitDiff": {
+          "type": "boolean",
+          "default": false,
+          "description": "Open preview when viewing git diff"
+        },
+        "previewMarkdown.previewOnlyMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Reader mode: show only preview, one file at a time (closes source and previous previews)"
+        },
+        "previewMarkdown.preserveFocus": {
+          "type": "boolean",
+          "default": true,
+          "description": "Keep focus in the source editor after opening preview"
+        },
+        "previewMarkdown.languages": {
+          "type": "string",
+          "default": "markdown",
+          "description": "Comma-separated list: markdown, asciidoc, restructuredtext"
+        }
+      }
+    },
     "commands": [
       {
-        "command": "preview-markdown-files.helloWorld",
-        "title": "Hello World"
+        "command": "previewMarkdown.toggleEnabled",
+        "title": "Toggle Auto Preview Markdown",
+        "category": "Auto Preview"
+      },
+      {
+        "command": "previewMarkdown.togglePreviewOnlyMode",
+        "title": "Toggle Preview-Only Mode",
+        "category": "Auto Preview"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "previewMarkdown.toggleEnabled",
+        "key": "ctrl+shift+alt+m",
+        "mac": "cmd+shift+alt+m",
+        "when": "editorTextFocus && editorLangId =~ /markdown|asciidoc|restructuredtext/"
+      },
+      {
+        "command": "previewMarkdown.togglePreviewOnlyMode",
+        "key": "ctrl+shift+alt+p",
+        "mac": "cmd+shift+alt+p",
+        "when": "editorTextFocus && editorLangId =~ /markdown|asciidoc|restructuredtext/"
       }
     ]
   },
@@ -28,7 +98,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.107.0",
+    "@types/vscode": "^1.75.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "typescript-eslint": "^8.52.0",
