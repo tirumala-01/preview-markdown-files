@@ -5,7 +5,7 @@ suite('Extension Integration Test Suite', () => {
     vscode.window.showInformationMessage('Starting Auto Preview Markdown tests');
 
     test('Extension should be present', () => {
-        const extension = vscode.extensions.getExtension('your-publisher-id.preview-markdown-files');
+        const extension = vscode.extensions.getExtension('tp-build-dev.preview-markdown-files');
         // Extension may not be found in test environment, but the lookup shouldn't throw
         assert.ok(true);
     });

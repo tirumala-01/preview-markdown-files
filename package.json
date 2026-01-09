@@ -3,10 +3,10 @@
   "displayName": "Auto Preview Markdown",
   "description": "Automatically open/close markdown preview with smart diff detection",
   "version": "1.0.0",
-  "publisher": "your-publisher-id",
+  "publisher": "tp-build-dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-repo/preview-markdown-files"
+    "url": ""
   },
   "license": "MIT",
   "engines": {
