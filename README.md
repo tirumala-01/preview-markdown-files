@@ -1,5 +1,7 @@
 # Auto Preview Markdown
 
+Acknowledgement: https://github.com/hnw/vscode-auto-open-markdown-preview
+
 A VS Code extension that automatically opens and closes markdown preview panels, streamlining your documentation workflow.
 
 ## Features
