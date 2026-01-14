@@ -2,7 +2,7 @@
   "name": "preview-markdown-files",
   "displayName": "Auto Preview Markdown",
   "description": "Automatically open/close markdown preview with smart diff detection",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "tp-build-dev",
   "repository": {
     "type": "git",
