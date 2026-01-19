@@ -2,11 +2,11 @@
   "name": "preview-markdown-files",
   "displayName": "Auto Preview Markdown",
   "description": "Automatically open/close markdown preview with smart diff detection",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "tp-build-dev",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/tirumala-01/preview-markdown-files"
   },
   "license": "MIT",
   "engines": {

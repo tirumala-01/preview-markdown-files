@@ -47,8 +47,6 @@ ext install preview-markdown-files
 #
 Acknowledgements: https://github.com/hnw/vscode-auto-open-markdown-preview
 
-Website: https://github.com/tirumala-01/preview-markdown-files
-
 
 ## License
 
